@@ -10,14 +10,23 @@ export interface match {
 }
 
 export interface champion {
-    name: string;
+    character_id: string;
+    name:string;
     items: number[];
     rarity:string;
     tier:number;
 }
 
+export interface augment {
+    name:string;
+    num_units:number;
+    style:number;
+    tier_current:number;
+    tier_total:number;
+}
+
 export interface participant {
-    augment: string[];
+    augment: augment[];
     gold_left: number;
     last_round: number;
     level: number;
@@ -27,4 +36,14 @@ export interface participant {
     total_damage_to_players: number;
     traits:string[];
     units:champion[];
+}
+
+export interface summoner {
+    accountId:string;
+    profileIconId:number;
+    revisionDate:number;
+    name:string;
+    id:string;
+    puuid:string;
+    summonerLevel:number;
 }

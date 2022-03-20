@@ -1,1 +1,13 @@
-<p>info works!</p>
+<div class="container">
+    <div>
+        <h2>The results...</h2>
+    </div>
+    <app-match-item
+    *ngFor="let participant of p"
+    [p1]="participant"
+    [color] = "colorPlacement(participant)">
+    </app-match-item>
+</div>
+<div>
+    <a href="/">Back home</a>
+</div>

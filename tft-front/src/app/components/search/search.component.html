@@ -1,0 +1,11 @@
+<form (ngSubmit)="onSubmit()">
+    <div class="searchForm">
+        <label for="id">Summoner Name:  </label>
+        <input type="text" name="id" [(ngModel)]="id" id="id" placeholder="Name...">
+    </div>
+    <div class="searchForm">
+        <label for="api">API: </label>
+        <input type="text" name="api" [(ngModel)]="apiKey" id="api" placeholder="Api...">
+    </div>
+    <input type="submit" value="Search" class="btn">
+</form>

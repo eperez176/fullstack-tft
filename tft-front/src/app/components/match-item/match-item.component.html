@@ -1,13 +1,25 @@
 <div class="container">
-    <div class="box">
+    <div class="box" [ngStyle]="{'background-color':color}">
         <div>
             <p class="text"> Gold Left: {{p1.gold_left}}</p>
         </div>
         <div>
             <p class="text"> Level: {{p1.level}} </p>
         </div>
+
+        <div *ngFor="let augment of p1.augment"
+        >
+            {{augment.name}}
+            {{augment.tier_current}}
+        </div>
+
         <div>
-            <p class="text">Placement: {{p1.placement}}</p>
+            <app-unit class="champs"
+            *ngFor="let champ of p1.units"
+            [champions] = "champ"
+            [url] = "update(champ)"
+            [tier] = "champ.tier"
+             ></app-unit>
         </div>
         
     </div>

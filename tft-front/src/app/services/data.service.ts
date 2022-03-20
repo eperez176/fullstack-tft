@@ -6,6 +6,7 @@ const httpOptions = {
   headers: new HttpHeaders (
     {
       'Content-Type': 'application/json'
+
     }
   )
 }
@@ -15,11 +16,17 @@ const httpOptions = {
 })
 export class DataService {
   baseUrl = "https://americas.api.riotgames.com";
+  baseUrl2 = "https://na1.api.riotgames.com"
 
   constructor(private http: HttpClient) { }
 
-  getMatches():Observable<any> {
-    const url = this.baseUrl + "/tft/match/v1/matches/" + "NA1_4244746247" + "?api_key=" + "RGAPI-15a788dd-c675-4080-8a48-7d0187a8c133";
-    return this.http.get<any>(url, httpOptions)
+  getMatches(api: string):Observable<any> {
+      const url = this.baseUrl + "/tft/match/v1/matches/" + "NA1_4244746247" + "?api_key=" + api;
+      return this.http.get<any>(url, httpOptions)
+
+  }
+  getUserInfo(id:string, api:string):Observable<any> {
+    const url = this.baseUrl2 + "/tft/summoner/v1/summoners/by-name/" + id +"?api_key=" + api
+    return this.http.get<any>(url, httpOptions);
   }
 }
