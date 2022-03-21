@@ -21,7 +21,6 @@ export class MatchItemComponent implements OnInit {
   }
 
   update(inp:champion): string {
-    //console.log(inp.character_id.split("-").filter(value => (value!="T" || value!="F" || value!-));
     if(inp.character_id == "TFT6_TahmKench")
       return ("http://tft.nemil.io/icons/champions/" + "Tahm_Kench"+ ".jpg")
     else if(inp.character_id == "TFT6_KhaZix")
@@ -35,5 +34,9 @@ export class MatchItemComponent implements OnInit {
 
     return ("http://tft.nemil.io/icons/champions/" + inp.character_id.split("_")[1]+ ".jpg")
     
+  }
+
+  remove(inp:string) {
+    return (inp.split("Augment_"))[1]
   }
 }

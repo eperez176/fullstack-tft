@@ -6,7 +6,6 @@ const httpOptions = {
   headers: new HttpHeaders (
     {
       'Content-Type': 'application/json'
-
     }
   )
 }
@@ -28,5 +27,9 @@ export class DataService {
   getUserInfo(id:string, api:string):Observable<any> {
     const url = this.baseUrl2 + "/tft/summoner/v1/summoners/by-name/" + id +"?api_key=" + api
     return this.http.get<any>(url, httpOptions);
+  }
+  getLeagueEntry(id:string, api:string):Observable<any> {
+    const url = this.baseUrl2 + "/tft/league/v1/entries/by-summoner/" + id + "?api_key=" + api;
+    return this.http.get<any>(url,httpOptions);
   }
 }

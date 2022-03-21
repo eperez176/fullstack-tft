@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-augment',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./augment.component.css']
 })
 export class AugmentComponent implements OnInit {
+  @Input() augment!:string;
 
   constructor() { }
 

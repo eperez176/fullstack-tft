@@ -5,13 +5,12 @@
         </div>
         <div>
             <p class="text"> Level: {{p1.level}} </p>
+            <app-augment class="text"
+            *ngFor="let augments of p1.augments"
+            [augment]="remove(augments)"
+            ></app-augment>
         </div>
 
-        <div *ngFor="let augment of p1.augment"
-        >
-            {{augment.name}}
-            {{augment.tier_current}}
-        </div>
 
         <div>
             <app-unit class="champs"

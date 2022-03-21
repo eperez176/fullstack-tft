@@ -2,6 +2,12 @@
     <div>
         <h2>The results...</h2>
     </div>
+    <div>
+        Name: {{summoner.name}}
+    </div>
+    <div>
+        Level: {{summoner.summonerLevel}}
+    </div>
     <app-match-item
     *ngFor="let participant of p"
     [p1]="participant"

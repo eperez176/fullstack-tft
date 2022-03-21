@@ -17,7 +17,7 @@ export interface champion {
     tier:number;
 }
 
-export interface augment {
+export interface trait {
     name:string;
     num_units:number;
     style:number;
@@ -26,7 +26,7 @@ export interface augment {
 }
 
 export interface participant {
-    augment: augment[];
+    augments: string[];
     gold_left: number;
     last_round: number;
     level: number;
@@ -46,4 +46,22 @@ export interface summoner {
     id:string;
     puuid:string;
     summonerLevel:number;
+}
+
+export interface leagueEntry {
+    leagueId: string;
+    summonerId: string;
+    summonerName: string;
+    queueType:string;
+    ratedTier: string;
+    ratedRating: number;
+    tier: string;
+    rank: string;
+    leaguePoints: number;
+    wins: number;
+    losses: number;
+    hotStreak: boolean;
+    veteran: boolean;
+    freshBlood: boolean;
+    inactive: boolean;
 }

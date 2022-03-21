@@ -13,17 +13,10 @@ export class UnitComponent implements OnInit {
   @Input() champions!:champion;
   baseURL: string = "http://tft.nemil.io/icons/champions/";
   @Input() url!: string; // = "http://tft.nemil.io/icons/champions/";
-  sub!:Subscription;
   @Input() tier!:number;
 
-  constructor(private uiService:UiService) { }
+  constructor() { }
 
   ngOnInit(): void {
-  }
-
-  update() {
-    //this.url = this.baseURL + this.champions.character_id.split("-")[1] + ".jpg";
-    //console.log(this.url);
-    //console.log("this was pressed")
   }
 }
