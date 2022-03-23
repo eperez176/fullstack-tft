@@ -30,11 +30,11 @@ export class UiService {
 
   // User info
   sentUser(id:string){
-    console.log("at sentUser:"+id)
+    //console.log("at sentUser:"+id)
     this.subjectUser.next(id);
   }
   getUser(){
-    console.log("Getting userID")
+    //console.log("Getting userID")
     return this.subjectUser.asObservable();
   }
 

@@ -32,17 +32,18 @@ export class InfoComponent implements OnInit {
     this.subId2 = this.uiService.getUserInfo().subscribe(value => {
       this.summonerName=value;
     });
+    this.subSI = this.uiService.getUser().subscribe(value => {this.summonerId = value});
     this.subId = this.dataService.getUserInfo(this.summonerName, this.apitemp).subscribe(value => {
       this.summoner = value;
-      console.log(value);
+      //console.log(this.summoner.id);
+      this.uiService.sentUser(this.summoner.id);
     });
 
-    this.subSI = this.uiService.getUser().subscribe(value => {this.summonerId = value; console.log(value)})
 
     this.leagueEntrySub = this.dataService.getLeagueEntry(this.summonerId,this.apitemp).subscribe(value => {
       this.leagueEntry = value;
       console.log(value)
-      console.log(this.summonerId)
+      console.log("At LE:"+this.summonerId)
       console.log(this.leagueEntry);
     });
 

@@ -32,4 +32,9 @@ export class DataService {
     const url = this.baseUrl2 + "/tft/league/v1/entries/by-summoner/" + id + "?api_key=" + api;
     return this.http.get<any>(url,httpOptions);
   }
+
+  getAllMatches(api:string,puuid:string){
+    const url = this.baseUrl + "/tft/match/v1/matches/by-puuid/" + puuid+"/ids";
+    return this.http.get<any>(url, httpOptions);
+  }
 }

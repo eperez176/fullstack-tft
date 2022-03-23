@@ -11,6 +11,7 @@ import { MatchItemComponent } from './components/match-item/match-item.component
 import { SearchComponent } from './components/search/search.component';
 import { UnitComponent } from './components/unit/unit.component';
 import { AugmentComponent } from './components/augment/augment.component';
+import { MatchComponent } from './components/match/match.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
     MatchItemComponent,
     SearchComponent,
     UnitComponent,
-    AugmentComponent
+    AugmentComponent,
+    MatchComponent
   ],
   imports: [
     BrowserModule,
