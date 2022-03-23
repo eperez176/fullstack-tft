@@ -1,5 +1,12 @@
 <div class="container">
-    <div class="box">
+    <div class="box" (click)="moreInfo()">
         <p>Match 1</p>
     </div>
+</div>
+<div *ngIf="clicked">
+    <app-match-item
+    *ngFor="let participant of p"
+    [p1]="participant"
+    [color] = "colorPlacement(participant)">
+    </app-match-item>
 </div>

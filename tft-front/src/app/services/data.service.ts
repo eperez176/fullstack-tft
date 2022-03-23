@@ -34,7 +34,7 @@ export class DataService {
   }
 
   getAllMatches(api:string,puuid:string){
-    const url = this.baseUrl + "/tft/match/v1/matches/by-puuid/" + puuid+"/ids";
+    const url = this.baseUrl + "/tft/match/v1/matches/by-puuid/" + puuid+"/ids"+"?api_key=" + api;
     return this.http.get<any>(url, httpOptions);
   }
 }
