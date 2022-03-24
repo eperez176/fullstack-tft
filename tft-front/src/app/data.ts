@@ -26,6 +26,7 @@ export interface trait {
 }
 
 export interface participant {
+    puuid:string;
     augments: string[];
     gold_left: number;
     last_round: number;
@@ -64,4 +65,13 @@ export interface leagueEntry {
     veteran: boolean;
     freshBlood: boolean;
     inactive: boolean;
+}
+
+export interface info{
+    game_datetime:number;
+    game_length: number;
+    tft_game_type: string;
+    game_version: string;
+    queue_id: number;
+    tft_set_number: number;
 }

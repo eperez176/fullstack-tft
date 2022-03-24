@@ -10,6 +10,9 @@
     </div>
     <app-match
     [api] = "apitemp"
+    *ngFor="let match of matches"
+    [matchName]="match"
+    [puuid] = "summoner.puuid"
     ></app-match>
 </div>
 <div>

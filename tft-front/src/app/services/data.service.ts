@@ -19,8 +19,8 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  getMatches(api: string):Observable<any> {
-      const url = this.baseUrl + "/tft/match/v1/matches/" + "NA1_4244746247" + "?api_key=" + api;
+  getMatches(api: string, matchName:string):Observable<any> {
+      const url = this.baseUrl + "/tft/match/v1/matches/" + matchName + "?api_key=" + api;
       return this.http.get<any>(url, httpOptions)
 
   }

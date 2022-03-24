@@ -50,21 +50,17 @@ export class InfoComponent implements OnInit {
       this.summoner = value;
       this.subMatch = this.dataService.getAllMatches(this.apitemp, this.summoner.puuid).subscribe(value => {
         this.matches = value;
-        var i = 0;
-        console.log(this.matches.length);
-        for(i = 0; i < this.matches.length; i++)
-          this.subMatchesAll = this.dataService.getMatches(this.apitemp).subscribe(value => console.log(value));
       });
       //this.uiService.sentUser(this.summoner.id);
     });
 
 
-    this.leagueEntrySub = this.dataService.getLeagueEntry(this.summonerId,this.apitemp).subscribe(value => {
-      this.leagueEntry = value;
-      console.log(value)
-      console.log("At LE:"+this.summonerId)
-      console.log(this.leagueEntry);
-    });
+    // this.leagueEntrySub = this.dataService.getLeagueEntry(this.summonerId,this.apitemp).subscribe(value => {
+    //   this.leagueEntry = value;
+    //   console.log(value)
+    //   console.log("At LE:"+this.summonerId)
+    //   console.log(this.leagueEntry);
+    // });
 
   }
 

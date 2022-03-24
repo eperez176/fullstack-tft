@@ -31,7 +31,8 @@ export class MatchItemComponent implements OnInit {
       return ("http://tft.nemil.io/icons/champions/" + "Chogath"+ ".jpg")
     else if(inp.character_id == "TFT6_Renata")
       return ("http://tft.nemil.io/icons/champions/" + "Renata_Glasc"+ ".jpg")
-
+    else if(inp.character_id == "TFT6_MissFortune")
+      return ("http://tft.nemil.io/icons/champions/" + "Miss_Fortune"+ ".jpg")
     return ("http://tft.nemil.io/icons/champions/" + inp.character_id.split("_")[1]+ ".jpg")
     
   }

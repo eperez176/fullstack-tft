@@ -1,6 +1,8 @@
 <div class="container">
-    <div class="box" (click)="moreInfo()">
-        <p>Match 1</p>
+    <div class="box" (click)="moreInfo()" [ngStyle]="{'background-color':color}">
+        <div class="block" [ngStyle]="{'background-color':colorRank}"></div>
+        <div class="child">Game Type: {{info.tft_game_type}}. Placement: {{placement}}</div>
+        
     </div>
 </div>
 <div *ngIf="clicked">
