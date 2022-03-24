@@ -21,6 +21,8 @@ export class MatchComponent implements OnInit {
   placement!:number;
   @Input() puuid!:string;
 
+  gameType!:string;
+
   p:participant[] = [];
   info:info = {
     game_datetime: 0,
@@ -54,7 +56,8 @@ export class MatchComponent implements OnInit {
         }
         //this.updateInfo(tmpInfo);
         this.info = tmpInfo;
-        this.color = this.updateColor(this.info.tft_game_type);
+        this.color = this.updateColor(this.info.queue_id);
+        this.gameType = this.updateGameType(this.info.queue_id);
         // this.colorRank = this.updateRank(this.p);
         for(i=0; i<8; i++) {
 
@@ -70,8 +73,8 @@ export class MatchComponent implements OnInit {
             return 0;
         }
         )
-        this.colorRank = this.updateRank(this.p);
-        this.placement = this.findPlacement(this.p);
+        this.colorRank = this.updateRank(this.p, this.info.queue_id);
+        this.placement = this.findPlacement(this.p, this.info.queue_id);
         //console.log(this.info)
         //console.log(this.p)
       })
@@ -85,58 +88,73 @@ export class MatchComponent implements OnInit {
     else if(inp.placement == 3)
       return "maroon"
     else if(inp.placement == 4)
-      return "navy"
-    else
       return "aliceblue"
+    else
+      return "white"
   }
   moreInfo(){
     this.clicked = !this.clicked;
   }
-  updateColor(inp:string){
-    if(inp == "standard")
+  updateColor(inp:number){ // changed for specific games (ranked/norms)
+    if(inp == 1100)
       return "gold"
-    else if(inp == "turbo")
+    else if(inp == 1090)
+      return "khaki"
+    else if(inp == 1130)
       return "cyan"
-    else if(inp == "pairs")
+    else if(inp == 1150)
       return "magenta"
     else
       return "white"
   }
-  updateRank(inp:participant[]){
+  updateRank(inp:participant[], queue_id: number){
     var i, j;
+    j = 0;
     for(i =0; i < inp.length; i++) {
       //console.log(i.toString + ": " + inp[i].puuid +", " + this.puuid)
       if(inp[i].puuid == this.puuid)
         j = inp[i].placement
     }
     console.log(j);
-    if(j == 1)
+    if(j == 1 && queue_id != 1150)
       return "goldenrod"
-    else if(j == 2)
+    else if(j == 2 && queue_id != 1150)
       return "gray"
-    else if(j == 3)
+    else if(j == 3 && queue_id != 1150)
       return "maroon"
-    else if(j == 4)
+    else if(j == 4 && queue_id != 1150)
       return "aliceblue"
-    else if (j == 5)
+    else if (j == 5 && queue_id != 1150)
       return "salmon"
-    else if (j == 6)
+    else if (j == 6 && queue_id != 1150)
       return "tomato"
-    else if (j == 7)
+    else if (j == 7 && queue_id != 1150)
       return "red"
-    else if(j == 8)
+    else if(j == 8 && queue_id != 1150)
       return "darkred"
+    else if(Math.ceil(j/2) == 1 && queue_id == 1150)
+      return "goldenrod"
+    else if(Math.ceil(j/2) == 2 && queue_id == 1150)
+      return "gray"
+    else if(Math.ceil(j/2) == 3 && queue_id == 1150)
+      return "tomato"
+    else if(Math.ceil(j/2) == 4 && queue_id == 1150)
+      return "red"
     else
       return "white"
   }
 
-  findPlacement(inp:participant[]){
-    var i;
+  findPlacement(inp:participant[], queue_id:number){
+    var i, j;
+    j = -1;
     for(i=0; i < inp.length; i++){
       if(this.puuid == inp[i].puuid)
-        return inp[i].placement;
+        j = inp[i].placement;
     }
-    return -1;
+    if(queue_id == 1150)
+      return Math.ceil(j/2)
+    else
+      return j
   }
 
   boxColor(inp:participant){
@@ -144,5 +162,19 @@ export class MatchComponent implements OnInit {
       return "pink"
     else
       return "white"
+  }
+
+  updateGameType(inp:number){
+    if(inp == 1090)
+      return "Normal"
+    else if(inp == 1100)
+      return "Ranked"
+    else if(inp == 1150)
+      return "Double Up"
+    else if(inp == 1130)
+      return "Hyper Roll"
+    else
+      return "Error"
+
   }
 }
