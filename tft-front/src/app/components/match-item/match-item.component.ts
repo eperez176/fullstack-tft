@@ -12,6 +12,7 @@ export class MatchItemComponent implements OnInit {
   @Input() p1!:participant;
   @Input() gold!:number;
   @Input() color!:string;
+  @Input() placement!: string;
   subject1: Subject<void> = new Subject<void>(); 
   
 

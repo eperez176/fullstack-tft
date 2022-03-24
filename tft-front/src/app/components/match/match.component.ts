@@ -118,8 +118,14 @@ export class MatchComponent implements OnInit {
       return "maroon"
     else if(j == 4)
       return "aliceblue"
-    else if(j == 8)
+    else if (j == 5)
+      return "salmon"
+    else if (j == 6)
+      return "tomato"
+    else if (j == 7)
       return "red"
+    else if(j == 8)
+      return "darkred"
     else
       return "white"
   }
@@ -131,5 +137,12 @@ export class MatchComponent implements OnInit {
         return inp[i].placement;
     }
     return -1;
+  }
+
+  boxColor(inp:participant){
+    if(inp.puuid == this.puuid)
+      return "pink"
+    else
+      return "white"
   }
 }
