@@ -1,7 +1,8 @@
 import { parseI18nMeta } from '@angular/compiler/src/render3/view/i18n/meta';
 import { Component, Input, OnInit, EventEmitter, Output} from '@angular/core';
 import { match, champion, participant} from 'src/app/data';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, Subject, Subscription } from 'rxjs';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-match-item',
@@ -13,10 +14,17 @@ export class MatchItemComponent implements OnInit {
   @Input() gold!:number;
   @Input() color!:string;
   @Input() placement!: string;
+  @Input() gameType!:number;
   subject1: Subject<void> = new Subject<void>(); 
+
+  subType!: Subscription;
+  filterType: string = 'all';
+
   
 
-  constructor() { }
+  constructor(private uiService:UiService) {
+    this.subType = this.uiService.getType().subscribe(value => this.filterType = value);
+   }
 
   ngOnInit(): void {
   }

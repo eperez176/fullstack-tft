@@ -1,0 +1,13 @@
+.left {
+    float:left;
+}
+.right{
+    float:right;
+}
+.container {
+    position: relative;
+    display: table;
+}
+.empty{
+    width: 1000px;
+}

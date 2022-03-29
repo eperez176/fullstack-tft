@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { leagueEntry, match, participant, summoner } from 'src/app/data';
 import { Subscription } from 'rxjs';
@@ -10,6 +10,7 @@ import { UiService } from 'src/app/services/ui.service';
   styleUrls: ['./info.component.css']
 })
 export class InfoComponent implements OnInit {
+  
   subscription!:Subscription;
   subId2!:Subscription;
   subId!: Subscription;
@@ -28,7 +29,9 @@ export class InfoComponent implements OnInit {
     puuid:'',
     summonerLevel:0
   };
+
   summonerName!:string;
+  @Output() displayType:string ='all';
 
   leagueEntrySub!:Subscription;
   subPU!:Subscription;
@@ -65,6 +68,10 @@ export class InfoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  updateType(){
+    this.uiService.sendType(this.displayType);
   }
 
 }

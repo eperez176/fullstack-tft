@@ -15,6 +15,8 @@ export class MatchComponent implements OnInit {
 
   subscription!: Subscription;
   sub2!:Subscription;
+  subType!: Subscription;
+  filterType:string = 'all';
 
   color!:string;
   colorRank!:string;
@@ -43,6 +45,7 @@ export class MatchComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChange){
+    this.subType = this.uiService.getType().subscribe(value => this.filterType = value);
     this.sub2 = this.uiService.getAPI().subscribe(value => this.api = value);
       this.subscription = this.dataService.getMatches(this.api, this.matchName).subscribe(value => {
         var i: number;
@@ -96,16 +99,16 @@ export class MatchComponent implements OnInit {
     this.clicked = !this.clicked;
   }
   updateColor(inp:number){ // changed for specific games (ranked/norms)
-    if(inp == 1100)
+    if(inp == 1100) // ranked
       return "gold"
-    else if(inp == 1090)
+    else if(inp == 1090) // norms
       return "khaki"
-    else if(inp == 1130)
+    else if(inp == 1130) // hyper roll
       return "cyan"
-    else if(inp == 1150)
+    else if(inp == 1150) // double up
       return "magenta"
     else
-      return "white"
+      return "white" // error
   }
   updateRank(inp:participant[], queue_id: number){
     var i, j;
@@ -176,5 +179,17 @@ export class MatchComponent implements OnInit {
     else
       return "Error"
 
+  }
+
+  display(type:number){
+    if(this.filterType == 'all')
+      return true;
+    else if(this.filterType = 'ranked') {
+      if(type == 1100)
+        return true;
+      else
+        return false;
+    }
+    return false;
   }
 }

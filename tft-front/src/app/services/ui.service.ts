@@ -9,6 +9,7 @@ export class UiService {
   private subject = new BehaviorSubject<string>("default");
   private subjectId = new BehaviorSubject<string>("default");
   private subjectUser = new BehaviorSubject<string>("default");
+  private subjectType = new BehaviorSubject<string>("all");
 
   constructor() { }
 
@@ -38,5 +39,11 @@ export class UiService {
     return this.subjectUser.asObservable();
   }
 
-  // Next things
+  // Sent display fiter
+  sendType(inp:string){
+    this.subjectType.next(inp);
+  }
+  getType(){
+    return this.subjectType.asObservable();
+  }
 }
