@@ -11,3 +11,11 @@
 2022.03.23 12:54:25 WARN  no build target for: C:\Users\18322\personal_project\onestring\src\main\scala\main.scala
 Mar 23, 2022 12:54:33 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
 WARNING: Unmatched cancel notification for request id 236
+2022.04.04 15:38:34 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at c:\Users\18322\personal_project\fullstack-tft\tft-front\.metals\lsp.trace.json or C:\Users\18322\AppData\Local\scalameta\metals\cache\lsp.trace.json
+2022.04.04 15:38:35 INFO  logging to file C:\Users\18322\personal_project\fullstack-tft\tft-front\.metals\metals.log
+2022.04.04 15:38:35 INFO  Started: Metals version 0.11.2 in workspace 'C:\Users\18322\personal_project\fullstack-tft\tft-front' for client Visual Studio Code 1.62.2.
+2022.04.04 15:38:35 INFO  Parse release: 1.8.0_292
+2022.04.04 15:38:38 INFO  time: initialize in 2.14s
+2022.04.04 15:38:42 WARN  Build server is not auto-connectable.
+2022.04.04 15:38:42 WARN  no build tool detected in workspace 'C:\Users\18322\personal_project\fullstack-tft\tft-front'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2022.04.05 21:55:52 INFO  shutting down Metals

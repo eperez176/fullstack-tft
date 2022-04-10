@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
+import { leagueEntry } from '../data';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,23 @@ export class UiService {
   private subjectId = new BehaviorSubject<string>("default");
   private subjectUser = new BehaviorSubject<string>("default");
   private subjectType = new BehaviorSubject<string>("all");
+  private subjectEntry = new BehaviorSubject<leagueEntry>({
+    leagueId: '',
+    summonerId: '',
+    summonerName: '',
+    queueType:'',
+    ratedTier: '',
+    ratedRating: 0,
+    tier: '',
+    rank: '',
+    leaguePoints: 0,
+    wins: 0,
+    losses: 0,
+    hotStreak: false,
+    veteran: false,
+    freshBlood: false,
+    inactive: false
+  });
 
   constructor() { }
 
@@ -45,5 +63,12 @@ export class UiService {
   }
   getType(){
     return this.subjectType.asObservable();
+  }
+
+  sentLeagueEntry(entry:leagueEntry){
+    this.subjectEntry.next(entry)
+  }
+  getEntry(){
+    return this.subjectEntry.asObservable();
   }
 }

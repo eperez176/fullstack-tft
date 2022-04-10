@@ -12,6 +12,7 @@ import { SearchComponent } from './components/search/search.component';
 import { UnitComponent } from './components/unit/unit.component';
 import { AugmentComponent } from './components/augment/augment.component';
 import { MatchComponent } from './components/match/match.component';
+import { HeaderComponent } from './components/header/header.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
     SearchComponent,
     UnitComponent,
     AugmentComponent,
-    MatchComponent
+    MatchComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

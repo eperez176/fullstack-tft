@@ -23,7 +23,7 @@ export class MatchItemComponent implements OnInit {
   
 
   constructor(private uiService:UiService) {
-    this.subType = this.uiService.getType().subscribe(value => this.filterType = value);
+
    }
 
   ngOnInit(): void {

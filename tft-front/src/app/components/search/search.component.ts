@@ -3,6 +3,7 @@ import { DataService } from 'src/app/services/data.service';
 import { Subscription } from 'rxjs';
 import { UiService } from 'src/app/services/ui.service';
 import { Router } from '@angular/router';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-search',
@@ -16,7 +17,7 @@ export class SearchComponent implements OnInit {
   
   apiKey!:string;
 
-  constructor(private dataService: DataService, private uiService:UiService, private router:Router) { }
+  constructor(private fb:FormBuilder, private uiService:UiService, private router:Router) { }
 
 
   ngOnInit(): void {

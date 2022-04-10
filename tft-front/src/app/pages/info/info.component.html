@@ -2,11 +2,16 @@
     <div>
         <h2>Displaying {{displayType}} games!</h2>
     </div>
-    <div class="left">
-        Name: {{summoner.name}}      
-    </div>
-    <div class="left">
-        Level: {{summoner.summonerLevel}}
+    <div class="header">
+        <div class="left">
+            Name: {{summoner.name}}      
+        </div>
+        <div class="left">
+            Level: {{summoner.summonerLevel}}
+        </div>
+        <div class="left">
+            Current Rank: h{{leagueEntry.tier}}h
+        </div>
     </div>
     <div class="empty"></div>
     <select name="filter" id="filter" class="right" [(ngModel)]="displayType" (change)="updateType()">
